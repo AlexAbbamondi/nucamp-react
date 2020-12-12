@@ -4,6 +4,7 @@ import { Breadcrumb, BreadcrumbItem, Button,  Label, Col, Row} from "reactstrap"
 import { Link } from "react-router-dom";
 import {Control, Form, Errors, actions} from "react-redux-form"
 
+
 const required = val => val && val.length
 const maxLength = len => val => !val || (val.length <= len)
 const minLength = len => val => val && (val.length >= len)
@@ -31,9 +32,8 @@ class Contact extends React.Component {
   }
 
   handleSubmit(values) {
-    console.log("Current state is: " + JSON.stringify(values));
-    alert("Current state is: " + JSON.stringify(values));
     this.props.resetFeedbackForm();
+    this.props.postFeedback();
   }
 
   render() {    
